@@ -14,7 +14,7 @@ This repository documents the end-to-end provisioning of a physical HP ProLiant 
     * Installation and configuration of the **Docker Engine** (CE).
 6. **Network and Service Orchestration**:
     * System-level DNS configuration.
-    * Deployment and isolation of an **Nginx** web server container, mapped to port 80.
+    * Deployment and isolation of an **Nginx** web server container, mapped to port 8080.
 7. **Connectivity Validation**: Successful service resolution and load testing via local browser interface.
 
 ## 🛠️ Technical Stack
@@ -31,20 +31,22 @@ This repository documents the end-to-end provisioning of a physical HP ProLiant 
 
 *Figure 1: Remote administrative session from PowerShell to the ProLiant host, demonstrating configuration debugging in `/etc/ssh/sshd_config` and service restart workflows.*
 
+![Nginx Service Validation](./images/nginx-success.png)
+
+*Figure 2: Validation of the Nginx web server container, successfully accessed from the host PC's browser at `http://192.168.1.8:8080`.*
+
 ---
 
-### ⚙️ Incident: DNS Resolution Issues
+## ⚙️ Operational Notes & Troubleshooting
+
+### Incident: DNS Resolution Issues
 During the initial service provisioning phase, we encountered connectivity timeouts when attempting to reach external package repositories.
 
 * **Root Cause Analysis**: Misconfiguration in the system's DNS resolver settings, preventing proper domain name resolution.
 * **Resolution**:
     1. Identified the misconfigured resolution file (e.g., `/etc/resolv.conf` or interface-specific settings).
-    2. Updated configuration to include reliable public upstream DNS resolvers (e.g., 8.8.8.8) using nano.
+    2. Updated configuration to include reliable public upstream DNS resolvers (e.g., 8.8.8.8) using `nano`.
     3. Applied network configuration changes and verified resolution using `nslookup` or `ping` to external domains.
-
----
-
-## ⚙️ Operational Notes & Troubleshooting
 
 ### Incident: SSH Connectivity (`Connection Refused`)
 During the initial provisioning phase, connectivity attempts on port 2222 resulted in a `Connection refused` error.
