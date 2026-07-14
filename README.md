@@ -33,7 +33,7 @@ This repository documents the end-to-end provisioning of a physical HP ProLiant 
 
 ---
 
-### Incident: DNS Resolution Issues
+### ⚙️ Incident: DNS Resolution Issues
 During the initial service provisioning phase, we encountered connectivity timeouts when attempting to reach external package repositories.
 
 * **Root Cause Analysis**: Misconfiguration in the system's DNS resolver settings, preventing proper domain name resolution.
