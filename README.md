@@ -33,6 +33,17 @@ This repository documents the end-to-end provisioning of a physical HP ProLiant 
 
 ---
 
+### Incident: DNS Resolution Issues
+During the initial service provisioning phase, we encountered connectivity timeouts when attempting to reach external package repositories.
+
+* **Root Cause Analysis**: Misconfiguration in the system's DNS resolver settings, preventing proper domain name resolution.
+* **Resolution**:
+    1. Identified the misconfigured resolution file (e.g., `/etc/resolv.conf` or interface-specific settings).
+    2. Updated configuration to include reliable public upstream DNS resolvers (e.g., 8.8.8.8) using nano.
+    3. Applied network configuration changes and verified resolution using `nslookup` or `ping` to external domains.
+
+---
+
 ## ⚙️ Operational Notes & Troubleshooting
 
 ### Incident: SSH Connectivity (`Connection Refused`)
