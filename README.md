@@ -16,7 +16,8 @@ This repository documents the end-to-end provisioning of a physical HP ProLiant 
     * System-level DNS configuration.
     * Deployment and isolation of an **Nginx** web server container, mapped to port 8080.
 7. **Connectivity Validation**: Successful service resolution and load testing via local browser interface.
-
+8. **Secure Remote Access (VPN)**: Implementation of **Tailscale** for encrypted, point-to-point remote access to the internal network.
+   
 ## 🛠️ Technical Stack
 
 * **Hardware**: HP ProLiant Server
@@ -59,4 +60,13 @@ During the initial provisioning phase, connectivity attempts on port 2222 result
     4. Validated connectivity via PowerShell, confirming successful session establishment.
 
 ---
+
+## 🔐 Remote Connectivity
+For secure access to this laboratory environment from external locations, we utilize **Tailscale** to establish a private, encrypted tunnel. 
+
+* **[Access the detailed Connection Guide here](docs/NETWORK_ACCESS.md)**
+
+---
+
+
 *Maintained by: LPedicino*
